@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Hotel Radient Kolkata — Official</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ivory: #FAF7F2;
+  --paper: #F2EDE4;
+  --teal: #00B4A6;
+  --teal-dark: #007A72;
+  --teal-pale: #E0F7F5;
+  --saffron: #FF6B2B;
+  --saffron-pale: #FFF0E8;
+  --blush: #F7C59F;
+  --plum: #2D1B4E;
+  --plum-light: #4A2D7A;
+  --ink: #1A1025;
+  --moss: #3D6B4F;
+  --text: #2A2030;
+  --muted: #7A6F82;
+  --white: #FFFFFF;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--text);font-family:'Lora',serif;overflow-x:hidden}
+
+/* CURSOR */
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 56px;background:rgba(250,247,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,180,166,0.12);transition:all .3s}
+.nav-logo{display:flex;align-items:baseline;gap:8px}
+.logo-r{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;font-style:italic;color:var(--teal);line-height:1}
+.logo-text{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:var(--plum)}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--teal);transition:width .3s}
+.nav-links a:hover{color:var(--teal)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--teal);color:var(--white);font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:11px 28px;border:none;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.nav-cta::before{content:'';position:absolute;inset:0;background:var(--saffron);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.77,0,.175,1)}
+.nav-cta:hover::before{transform:scaleX(1)}
+.nav-cta span{position:relative;z-index:1}
+
+/* ============ HERO ============ */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{background:var(--plum);display:flex;flex-direction:column;justify-content:center;padding:140px 70px 80px 70px;position:relative;overflow:hidden}
+.hero-left::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse at 0% 100%,rgba(0,180,166,.25) 0%,transparent 55%),
+  radial-gradient(ellipse at 100% 0%,rgba(255,107,43,.15) 0%,transparent 50%);
+}
+/* animated mesh */
+.hero-mesh{position:absolute;inset:-50%;width:200%;height:200%;background:
+  repeating-linear-gradient(60deg,transparent,transparent 40px,rgba(0,180,166,.04) 40px,rgba(0,180,166,.04) 41px),
+  repeating-linear-gradient(-60deg,transparent,transparent 40px,rgba(255,107,43,.03) 40px,rgba(255,107,43,.03) 41px);
+  animation:meshMove 18s linear infinite}
+@keyframes meshMove{from{transform:translate(0,0)}to{transform:translate(40px,40px)}}
+
+.hero-eyebrow{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.55em;text-transform:uppercase;color:var(--teal);margin-bottom:28px;display:flex;align-items:center;gap:14px;position:relative;z-index:2;opacity:0;animation:fadeUp .8s .3s forwards}
+.hero-eyebrow::after{content:'';flex:1;height:1px;background:rgba(0,180,166,.3)}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(3.8rem,6vw,6.5rem);font-weight:900;line-height:.92;color:var(--ivory);position:relative;z-index:2;opacity:0;animation:fadeUp .9s .5s forwards}
+.hero-h1 span{display:block;color:var(--teal);font-style:italic;font-weight:400}
+.hero-h1 em{display:block;color:var(--saffron);font-style:normal;font-size:.4em;font-family:'Syne',sans-serif;font-weight:800;letter-spacing:.4em;margin-top:12px}
+.hero-body{font-size:.95rem;line-height:1.85;color:rgba(250,247,242,.5);max-width:360px;margin:32px 0 48px;position:relative;z-index:2;opacity:0;animation:fadeUp .9s .7s forwards;font-family:'Lora',serif;font-style:italic}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;position:relative;z-index:2;opacity:0;animation:fadeUp .9s .9s forwards}
+.btn-fill{background:var(--teal);color:var(--white);font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;padding:16px 36px;border:none;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.btn-fill:hover{background:var(--saffron)}
+.btn-border{background:transparent;border:1.5px solid rgba(250,247,242,.25);color:var(--ivory);font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:16px 32px;cursor:pointer;transition:all .3s}
+.btn-border:hover{border-color:var(--teal);color:var(--teal)}
+
+.hero-badges{position:absolute;bottom:48px;left:70px;display:flex;gap:28px;z-index:2;opacity:0;animation:fadeUp .8s 1.1s forwards}
+.hero-badge-item{text-align:center}
+.badge-n{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--ivory);line-height:1}
+.badge-l{font-family:'Syne',sans-serif;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(250,247,242,.4);margin-top:3px}
+
+/* right panel */
+.hero-right{position:relative;overflow:hidden}
+.hero-img-wrap{width:100%;height:100%;position:relative}
+.hero-img{width:100%;height:100%;object-fit:cover;background:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80') center/cover;animation:heroKen 14s ease-in-out infinite alternate}
+@keyframes heroKen{from{transform:scale(1) translateX(0)}to{transform:scale(1.07) translateX(-20px)}}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(45,27,78,.3) 0%,transparent 40%),linear-gradient(to top,rgba(45,27,78,.5) 0%,transparent 50%)}
+
+/* floating tag */
+.hero-float-tag{position:absolute;bottom:60px;right:40px;background:var(--saffron);color:var(--white);padding:20px 28px;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;z-index:10;animation:tagFloat 3s ease-in-out infinite}
+@keyframes tagFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-float-tag span{display:block;font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;letter-spacing:0;margin-top:3px;color:var(--white)}
+
+.hero-scroll-cue{position:absolute;top:50%;right:-16px;transform:translateY(-50%) rotate(90deg);font-family:'Syne',sans-serif;font-size:.6rem;letter-spacing:.4em;color:rgba(250,247,242,.4);text-transform:uppercase;writing-mode:vertical-rl;display:flex;align-items:center;gap:10px}
+.hero-scroll-cue::before{content:'';width:40px;height:1px;background:rgba(250,247,242,.25)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============ BOOKING STRIP ============ */
+.booking-strip{background:var(--teal);display:flex;align-items:stretch;overflow:hidden}
+.b-field{flex:1;padding:26px 30px;border-right:1px solid rgba(255,255,255,.15);display:flex;flex-direction:column;gap:6px;transition:background .3s}
+.b-field:hover{background:rgba(0,0,0,.08)}
+.b-field:last-of-type{border-right:none}
+.b-label{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.b-input{background:transparent;border:none;outline:none;color:#fff;font-family:'Playfair Display',serif;font-size:1.05rem;width:100%}
+.b-input::placeholder{color:rgba(255,255,255,.45)}
+.b-submit{background:var(--saffron);color:var(--white);font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;padding:0 52px;border:none;cursor:pointer;transition:background .3s;white-space:nowrap;flex-shrink:0}
+.b-submit:hover{background:#e05520}
+
+/* ============ MARQUEE ============ */
+.marquee-bar{background:var(--paper);border-top:1px solid rgba(0,180,166,.15);border-bottom:1px solid rgba(0,180,166,.15);padding:14px 0;overflow:hidden;white-space:nowrap}
+.marquee-inner{display:inline-flex;animation:marquee 22s linear infinite;gap:0}
+.marquee-item{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);padding:0 36px;display:inline-flex;align-items:center;gap:18px}
+.marquee-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============ INTRO ============ */
+.intro-section{padding:120px 70px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;background:var(--ivory)}
+.intro-text .section-tag{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--saffron);display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.intro-text .section-tag::before{content:'';width:28px;height:2px;background:var(--saffron)}
+.intro-h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:900;line-height:1.05;color:var(--plum);margin-bottom:24px}
+.intro-h2 em{font-style:italic;color:var(--teal)}
+.intro-body{font-size:.95rem;line-height:1.9;color:var(--muted);font-style:italic;margin-bottom:36px}
+.intro-stats{display:flex;gap:40px}
+.i-stat-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--plum);line-height:1}
+.i-stat-label{font-family:'Syne',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.intro-visual{position:relative;height:520px}
+.intro-img-main{position:absolute;width:80%;height:85%;top:0;right:0;background:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80') center/cover;border-radius:0}
+.intro-img-accent{position:absolute;width:48%;height:44%;bottom:0;left:0;background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80') center/cover;outline:6px solid var(--ivory);outline-offset:-1px;box-shadow:0 24px 60px rgba(45,27,78,.15)}
+.intro-pill{position:absolute;top:38%;right:-24px;background:var(--plum);color:var(--ivory);padding:18px 22px;font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:.4em}
+
+/* ============ ROOMS ============ */
+.rooms-section{background:var(--paper);padding:120px 0}
+.rooms-head{padding:0 70px;display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px}
+.rooms-head .section-tag{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.rooms-head .section-tag::before{content:'';width:28px;height:2px;background:var(--teal)}
+.rooms-h2{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,3.8vw,3.8rem);font-weight:900;color:var(--plum);line-height:1.05}
+.rooms-h2 em{font-style:italic;color:var(--saffron)}
+
+/* horizontal scroll rooms */
+.rooms-scroll{display:flex;gap:3px;overflow-x:auto;padding:0 70px 0 70px;scrollbar-width:none}
+.rooms-scroll::-webkit-scrollbar{display:none}
+.room-card{flex-shrink:0;width:360px;position:relative;overflow:hidden;cursor:pointer;background:var(--plum)}
+.room-card:hover .rc-img{transform:scale(1.08)}
+.rc-img{width:100%;height:460px;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.25,.46,.45,.94);background:#2d1b4e url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80') center/cover}
+.rc-img-2{background-image:url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=700&q=80')}
+.rc-img-3{background-image:url('https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=700&q=80')}
+.rc-img-4{background-image:url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=700&q=80')}
+.rc-img-5{background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80')}
+.rc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(45,27,78,.95) 0%,rgba(45,27,78,.1) 60%);padding:28px;display:flex;flex-direction:column;justify-content:flex-end}
+.rc-badge{position:absolute;top:20px;right:20px;background:var(--saffron);color:#fff;font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.2em;padding:6px 14px;text-transform:uppercase}
+.rc-type{font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.rc-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--ivory);margin-bottom:6px}
+.rc-price{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--blush)}
+.rc-price small{font-family:'Syne',sans-serif;font-size:.65rem;font-style:normal;color:rgba(250,247,242,.4)}
+.rc-extras{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;max-height:0;overflow:hidden;transition:max-height .4s}
+.room-card:hover .rc-extras{max-height:60px}
+.rc-tag{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;background:rgba(0,180,166,.15);color:var(--teal);padding:4px 10px;border:1px solid rgba(0,180,166,.3)}
+.rc-btn{margin-top:14px;background:var(--teal);color:#fff;border:none;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:11px 22px;cursor:pointer;max-height:0;overflow:hidden;opacity:0;transition:all .4s;width:fit-content}
+.room-card:hover .rc-btn{max-height:50px;opacity:1}
+.rc-btn:hover{background:var(--saffron)}
+
+/* ============ SPLIT AMENITY ============ */
+.amenity-section{display:grid;grid-template-columns:1fr 1fr}
+.am-left{background:var(--teal);padding:100px 70px;position:relative;overflow:hidden}
+.am-left::before{content:'';position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:rgba(0,0,0,.08)}
+.am-left::after{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06)}
+.am-left .section-tag{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.am-left .section-tag::before{content:'';width:28px;height:2px;background:rgba(255,255,255,.5)}
+.am-h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:900;color:#fff;line-height:1.08;margin-bottom:20px}
+.am-h2 em{font-style:italic;color:var(--saffron)}
+.am-body{font-size:.92rem;line-height:1.85;color:rgba(255,255,255,.65);font-style:italic;margin-bottom:44px;max-width:380px}
+.am-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;position:relative;z-index:2}
+.am-item{background:rgba(255,255,255,.07);padding:22px 20px;border:1px solid rgba(255,255,255,.1);transition:all .3s;cursor:default;display:flex;align-items:center;gap:14px}
+.am-item:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25)}
+.am-icon{font-size:1.4rem;flex-shrink:0}
+.am-label{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.85)}
+
+.am-right{background:var(--plum);display:grid;grid-template-rows:1fr 1fr}
+.am-img-top{background:url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80') center/cover;min-height:300px}
+.am-bottom-split{display:grid;grid-template-columns:1fr 1fr}
+.am-img-bl{background:url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&q=80') center/cover}
+.am-stat-br{background:var(--saffron);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px}
+.am-stat-n{font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:#fff;line-height:1}
+.am-stat-l{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.7);text-align:center;margin-top:6px}
+
+/* ============ DINING ============ */
+.dining-section{background:var(--ivory);padding:120px 70px}
+.dining-head{margin-bottom:64px;display:flex;justify-content:space-between;align-items:flex-end}
+.dining-h2{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,3.8vw,3.8rem);font-weight:900;color:var(--plum);line-height:1.05}
+.dining-h2 em{font-style:italic;color:var(--teal)}
+.dining-grid{display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:auto auto;gap:3px}
+.d-card{position:relative;overflow:hidden;cursor:pointer}
+.d-card:first-child{grid-row:span 2}
+.d-img{width:100%;height:100%;min-height:320px;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.25,.46,.45,.94);background:#2d1b4e}
+.d-card:first-child .d-img{min-height:640px;background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80')}
+.d-card:nth-child(2) .d-img{background-image:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80')}
+.d-card:nth-child(3) .d-img{background-image:url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=700&q=80')}
+.d-card:hover .d-img{transform:scale(1.07)}
+.d-info{position:absolute;bottom:0;left:0;right:0;padding:28px 32px;background:linear-gradient(to top,rgba(45,27,78,.97) 0%,transparent 100%)}
+.d-cuisine{font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.d-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--ivory)}
+.d-desc{font-size:.8rem;line-height:1.65;color:rgba(250,247,242,.5);margin-top:8px;max-height:0;overflow:hidden;transition:max-height .4s;font-style:italic}
+.d-card:hover .d-desc{max-height:80px}
+.d-res{margin-top:14px;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--saffron);opacity:0;max-height:0;overflow:hidden;transition:all .4s;display:flex;align-items:center;gap:8px}
+.d-card:hover .d-res{opacity:1;max-height:30px}
+
+/* ============ EXP ============ */
+.exp-section{background:var(--saffron-pale);padding:120px 70px}
+.exp-head{margin-bottom:64px}
+.exp-h2{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,3.8vw,3.8rem);font-weight:900;color:var(--plum);line-height:1.05;margin-top:14px}
+.exp-h2 em{font-style:italic;color:var(--saffron)}
+.exp-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(45,27,78,.1)}
+.exp-row{display:grid;grid-template-columns:80px 1fr 200px;align-items:center;padding:28px 0;border-bottom:1px solid rgba(45,27,78,.1);cursor:pointer;transition:all .3s;gap:32px}
+.exp-row:hover{background:rgba(255,107,43,.04);padding-left:16px}
+.exp-n{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:rgba(45,27,78,.12);transition:color .3s}
+.exp-row:hover .exp-n{color:rgba(255,107,43,.3)}
+.exp-mid{display:flex;align-items:center;gap:20px}
+.exp-icon{width:48px;height:48px;background:var(--teal-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;transition:background .3s}
+.exp-row:hover .exp-icon{background:var(--saffron);filter:brightness(1.1)}
+.exp-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--plum);margin-bottom:4px}
+.exp-desc{font-size:.8rem;color:var(--muted);line-height:1.6;font-style:italic}
+.exp-arrow{text-align:right;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:flex-end;gap:8px}
+.exp-row:hover .exp-arrow{opacity:1}
+
+/* ============ GALLERY ============ */
+.gallery-section{background:var(--plum);padding:120px 0}
+.gallery-head{padding:0 70px;margin-bottom:56px;display:flex;justify-content:space-between;align-items:flex-end}
+.gallery-head .section-tag{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.gallery-head .section-tag::before{content:'';width:28px;height:2px;background:var(--teal)}
+.gallery-h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:900;color:var(--ivory);line-height:1.05}
+.gallery-h2 em{font-style:italic;color:var(--saffron)}
+.gallery-bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:260px 260px;gap:3px;padding:0 70px}
+.g-item{overflow:hidden;cursor:pointer;position:relative}
+.g-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.g-item:nth-child(5){grid-column:span 2}
+.g-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.25,.46,.45,.94);background:#3d2060}
+.g-item:nth-child(1) .g-img{background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&q=80')}
+.g-item:nth-child(2) .g-img{background-image:url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?w=600&q=80')}
+.g-item:nth-child(3) .g-img{background-image:url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600&q=80')}
+.g-item:nth-child(4) .g-img{background-image:url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=600&q=80')}
+.g-item:nth-child(5) .g-img{background-image:url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=80')}
+.g-item:nth-child(6) .g-img{background-image:url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&q=80')}
+.g-item:hover .g-img{transform:scale(1.09)}
+.g-item::after{content:'';position:absolute;inset:0;background:rgba(255,107,43,.15);opacity:0;transition:opacity .4s}
+.g-item:hover::after{opacity:1}
+
+/* ============ TESTIMONIALS ============ */
+.testi-section{background:var(--ivory);padding:120px 70px}
+.testi-head{margin-bottom:64px;text-align:center}
+.testi-head .section-tag{justify-content:center}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.t-card{background:var(--paper);border:1px solid rgba(0,180,166,.1);padding:44px 36px;cursor:default;transition:all .3s;position:relative;overflow:hidden}
+.t-card::before{content:'"';font-family:'Playfair Display',serif;font-size:10rem;font-weight:900;color:rgba(0,180,166,.07);position:absolute;top:-20px;left:20px;line-height:1}
+.t-card:hover{border-color:var(--teal);background:#fff;transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,180,166,.12)}
+.t-stars{display:flex;gap:3px;color:var(--saffron);font-size:.85rem;margin-bottom:22px}
+.t-quote{font-family:'Lora',serif;font-size:.95rem;font-style:italic;line-height:1.8;color:var(--text);margin-bottom:28px;position:relative;z-index:1}
+.t-author{display:flex;align-items:center;gap:14px}
+.t-av{width:46px;height:46px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:.8rem;color:#fff;flex-shrink:0}
+.t-name{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--plum)}
+.t-from{font-size:.7rem;color:var(--muted);font-style:italic;margin-top:2px}
+
+/* ============ LOCATION ============ */
+.loc-section{background:var(--plum);padding:120px 70px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.loc-left .section-tag{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.loc-left .section-tag::before{content:'';width:28px;height:2px;background:var(--teal)}
+.loc-h2{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,3.5vw,3.5rem);font-weight:900;color:var(--ivory);line-height:1.05;margin-bottom:20px}
+.loc-h2 em{font-style:italic;color:var(--saffron)}
+.loc-body{font-size:.9rem;line-height:1.85;color:rgba(250,247,242,.5);font-style:italic;margin-bottom:44px}
+.loc-dist-list{border-top:1px solid rgba(255,255,255,.08)}
+.loc-dist-item{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.dist-name{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:600;color:rgba(250,247,242,.55)}
+.dist-km{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--teal)}
+.loc-address{margin-top:36px;background:rgba(0,180,166,.1);border:1px solid rgba(0,180,166,.2);padding:24px 28px}
+.loc-addr-line{font-size:.8rem;color:rgba(250,247,242,.55);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.loc-addr-line span{color:var(--teal)}
+
+.loc-right{position:relative;height:500px}
+.loc-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80') center/cover;opacity:.35}
+.loc-overlay-card{position:absolute;bottom:32px;left:32px;right:32px;background:rgba(250,247,242,.07);backdrop-filter:blur(10px);border:1px solid rgba(250,247,242,.12);padding:28px}
+.loc-poi-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.loc-poi{display:flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,247,242,.6)}
+.loc-poi-dot{width:8px;height:8px;background:var(--saffron);border-radius:50%;flex-shrink:0;animation:poiPulse 2s ease-in-out infinite}
+@keyframes poiPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,107,43,.4)}50%{box-shadow:0 0 0 8px rgba(255,107,43,0)}}
+
+/* ============ CTA ============ */
+.cta-section{background:var(--saffron);padding:100px 70px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,.07)}
+.cta-section::after{content:'';position:absolute;bottom:-60px;left:-60px;width:250px;height:250px;border-radius:50%;background:rgba(0,0,0,.06)}
+.cta-h2{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4vw,4.5rem);font-weight:900;color:#fff;line-height:1.0;position:relative;z-index:1}
+.cta-h2 em{font-style:italic}
+.cta-right{position:relative;z-index:1}
+.cta-body{font-size:.92rem;line-height:1.85;color:rgba(255,255,255,.75);font-style:italic;margin-bottom:36px}
+.cta-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--saffron);font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;padding:16px 36px;border:none;cursor:pointer;transition:all .3s}
+.btn-white:hover{background:var(--plum);color:#fff}
+.btn-white-border{background:transparent;border:2px solid rgba(255,255,255,.5);color:#fff;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:14px 32px;cursor:pointer;transition:all .3s}
+.btn-white-border:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+
+/* ============ FOOTER ============ */
+footer{background:var(--ink);padding:80px 70px;border-top:3px solid var(--teal)}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.f-logo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;font-style:italic;color:var(--teal);margin-bottom:14px}
+.f-tagline{font-family:'Lora',serif;font-style:italic;font-size:.88rem;color:rgba(250,247,242,.3);margin-bottom:22px}
+.f-contact{font-size:.78rem;color:rgba(250,247,242,.35);line-height:1.9}
+.f-col-title{font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:var(--teal);margin-bottom:22px}
+.f-link{display:block;font-size:.8rem;color:rgba(250,247,242,.35);text-decoration:none;margin-bottom:10px;transition:color .3s}
+.f-link:hover{color:var(--saffron)}
+.footer-bottom{border-top:1px solid rgba(250,247,242,.07);padding-top:28px;display:flex;justify-content:space-between;align-items:center}
+.f-copy{font-size:.7rem;color:rgba(250,247,242,.25);font-family:'Syne',sans-serif;letter-spacing:.15em}
+.f-socials{display:flex;gap:14px}
+.f-soc{width:36px;height:36px;border:1px solid rgba(0,180,166,.2);display:flex;align-items:center;justify-content:center;color:rgba(250,247,242,.35);text-decoration:none;font-size:.75rem;transition:all .3s;cursor:pointer}
+.f-soc:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+
+/* ============ MODAL ============ */
+.modal-bg{position:fixed;inset:0;z-index:900;background:rgba(45,27,78,.85);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.modal-bg.on{opacity:1;pointer-events:all}
+.modal-box{background:var(--ivory);width:90%;max-width:580px;padding:56px;position:relative;transform:translateY(24px);transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+.modal-bg.on .modal-box{transform:translateY(0)}
+.modal-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--plum);margin-bottom:4px}
+.modal-sub{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:var(--teal);margin-bottom:36px}
+.m-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.m-group{display:flex;flex-direction:column;gap:7px}
+.m-label{font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--teal)}
+.m-input,.m-select{background:transparent;border:1.5px solid rgba(45,27,78,.15);color:var(--text);font-family:'Playfair Display',serif;font-size:1rem;padding:13px 16px;outline:none;transition:border-color .3s;width:100%}
+.m-input:focus,.m-select:focus{border-color:var(--teal)}
+.m-select option{background:var(--ivory)}
+.modal-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:1.3rem;color:var(--muted);cursor:pointer;transition:color .3s}
+.modal-close:hover{color:var(--saffron)}
+.modal-confirm{width:100%;margin-top:24px;background:var(--teal);color:#fff;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;padding:18px;border:none;cursor:pointer;transition:background .3s}
+.modal-confirm:hover{background:var(--saffron)}
+
+/* TOAST */
+.toast{position:fixed;bottom:36px;right:36px;z-index:9999;background:var(--teal);color:#fff;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:16px 28px;transform:translateY(80px);opacity:0;transition:all .4s cubic-bezier(.25,.46,.45,.94)}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .8s,transform .8s cubic-bezier(.25,.46,.45,.94)}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv1{transition-delay:.1s}.rv2{transition-delay:.2s}.rv3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast">Reservation Confirmed ✦</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal-box">
+    <button type="button" class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title">Reserve a Room</div>
+    <div class="modal-sub">Hotel Radient · Kolkata</div>
+    <div class="m-row">
+      <div class="m-group"><label class="m-label">Check In</label><input type="date" class="m-input" id="ci"/></div>
+      <div class="m-group"><label class="m-label">Check Out</label><input type="date" class="m-input" id="co"/></div>
+    </div>
+    <div class="m-row">
+      <div class="m-group"><label class="m-label">Room</label>
+        <select class="m-select"><option>Presidential Suite</option><option>Royal Suite</option><option>Grand Deluxe</option><option>Heritage Room</option></select>
+      </div>
+      <div class="m-group"><label class="m-label">Guests</label>
+        <select class="m-select"><option>1 Guest</option><option>2 Guests</option><option>3 Guests</option><option>4 Guests</option></select>
+      </div>
+    </div>
+    <div class="m-row">
+      <div class="m-group"><label class="m-label">Full Name</label><input type="text" class="m-input" placeholder="Your name"/></div>
+      <div class="m-group"><label class="m-label">Email</label><input type="email" class="m-input" placeholder="you@email.com"/></div>
+    </div>
+    <button type="button" class="modal-confirm" onclick="submitBooking()">Confirm Reservation</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="logo-r">R</div>
+    <div class="logo-text">Hotel Radient<br>Kolkata</div>
+  </div>
+  <div class="nav-links">
+    <a href="#rooms">Rooms</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#dining">Dining</a>
+    <a href="#exp">Experiences</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#location">Location</a>
+    <button type="button" class="nav-cta" onclick="openModal()"><span>Book Now</span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-mesh"></div>
+    <div class="hero-eyebrow">Kolkata's Crown Jewel</div>
+    <h1 class="hero-h1">Where<br><span>Kolkata</span><br>Radiates<em>★ Since 1994 ★</em></h1>
+    <p class="hero-body">A sanctuary of refined living nestled in the pulsing heart of the City of Joy — where Bengal's timeless culture meets world-class hospitality.</p>
+    <div class="hero-actions">
+      <button type="button" class="btn-fill" onclick="openModal()">Reserve Now</button>
+      <button type="button" class="btn-border" onclick="document.getElementById('rooms').scrollIntoView({behavior:'smooth'})">View Rooms</button>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge-item"><div class="badge-n">24</div><div class="badge-l">Luxury Rooms</div></div>
+      <div class="hero-badge-item"><div class="badge-n">5★</div><div class="badge-l">Rated Hotel</div></div>
+      <div class="hero-badge-item"><div class="badge-n">30+</div><div class="badge-l">Years Legacy</div></div>
+    </div>
+    <div class="hero-scroll-cue"><span>Scroll to explore</span></div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <div class="hero-img"></div>
+      <div class="hero-img-overlay"></div>
+    </div>
+    <div class="hero-float-tag">Starting From<span>₹6,500</span></div>
+  </div>
+</section>
+
+<!-- BOOKING STRIP -->
+<div class="booking-strip">
+  <div class="b-field"><div class="b-label">Check In</div><input type="date" class="b-input" id="bci"/></div>
+  <div class="b-field"><div class="b-label">Check Out</div><input type="date" class="b-input" id="bco"/></div>
+  <div class="b-field"><div class="b-label">Guests</div><input type="number" class="b-input" placeholder="2 Adults" min="1" max="6"/></div>
+  <div class="b-field"><div class="b-label">Room Preference</div><input type="text" class="b-input" placeholder="Any Room" list="rtypes"/><datalist id="rtypes"><option>Presidential Suite</option><option>Royal Suite</option><option>Grand Deluxe</option><option>Heritage Room</option></datalist></div>
+  <button type="button" class="b-submit" onclick="openModal()">Check Availability</button>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    <span class="marquee-item"><span class="marquee-dot"></span>Luxury Redefined</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Park Street Kolkata</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>5-Star Excellence</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Heritage & Grandeur</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Award-Winning Dining</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Infinity Pool & Spa</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Luxury Redefined</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Park Street Kolkata</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>5-Star Excellence</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Heritage & Grandeur</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Award-Winning Dining</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Infinity Pool & Spa</span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <div class="intro-text rv">
+    <div class="section-tag">Our Story</div>
+    <h2 class="intro-h2">Kolkata's <em>Soul</em> In Every Corner</h2>
+    <p class="intro-body">Born from a love of Kolkata's incomparable spirit, Hotel Radient has stood for three decades as the city's most beloved address — where guests arrive as visitors and leave as family.</p>
+    <div class="intro-stats">
+      <div><div class="i-stat-num">24</div><div class="i-stat-label">Luxury Suites</div></div>
+      <div><div class="i-stat-num">5</div><div class="i-stat-label">Restaurants</div></div>
+      <div><div class="i-stat-num">30</div><div class="i-stat-label">Years Legacy</div></div>
+    </div>
+  </div>
+  <div class="intro-visual rv rv1">
+    <div class="intro-img-main"></div>
+    <div class="intro-img-accent"></div>
+    <div class="intro-pill">Kolkata · Since 1994</div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section id="rooms" style="padding:0 0 120px">
+  <div class="rooms-head rv">
+    <div>
+      <div class="section-tag" style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="width:28px;height:2px;background:var(--teal);display:block"></span>Accommodation</div>
+      <h2 class="rooms-h2">Your Private <em>Sanctuary</em></h2>
+    </div>
+    <p style="max-width:320px;font-size:.88rem;line-height:1.8;color:var(--muted);font-style:italic">Each room a canvas of comfort, woven with Bengal's finest craftsmanship and modern luxury.</p>
+  </div>
+  <div class="rooms-scroll rv">
+    <div class="room-card">
+      <div class="rc-img"></div>
+      <div class="rc-overlay">
+        <div class="rc-badge">Signature</div>
+        <div class="rc-type">Presidential</div>
+        <div class="rc-name">The Grand Suite</div>
+        <div class="rc-price">₹28,000 <small>/ night</small></div>
+        <div class="rc-extras"><span class="rc-tag">280 sqm</span><span class="rc-tag">Terrace</span><span class="rc-tag">Butler</span></div>
+        <button type="button" class="rc-btn" onclick="openModal()">Reserve →</button>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="rc-img rc-img-2"></div>
+      <div class="rc-overlay">
+        <div class="rc-type">Heritage Suite</div>
+        <div class="rc-name">Royal Room</div>
+        <div class="rc-price">₹18,500 <small>/ night</small></div>
+        <div class="rc-extras"><span class="rc-tag">180 sqm</span><span class="rc-tag">River View</span></div>
+        <button type="button" class="rc-btn" onclick="openModal()">Reserve →</button>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="rc-img rc-img-3"></div>
+      <div class="rc-overlay">
+        <div class="rc-type">Deluxe Room</div>
+        <div class="rc-name">Grand Deluxe</div>
+        <div class="rc-price">₹9,800 <small>/ night</small></div>
+        <div class="rc-extras"><span class="rc-tag">65 sqm</span><span class="rc-tag">Garden</span></div>
+        <button type="button" class="rc-btn" onclick="openModal()">Reserve →</button>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="rc-img rc-img-4"></div>
+      <div class="rc-overlay">
+        <div class="rc-type">Classic Room</div>
+        <div class="rc-name">Heritage Room</div>
+        <div class="rc-price">₹6,500 <small>/ night</small></div>
+        <div class="rc-extras"><span class="rc-tag">48 sqm</span><span class="rc-tag">City View</span></div>
+        <button type="button" class="rc-btn" onclick="openModal()">Reserve →</button>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="rc-img rc-img-5"></div>
+      <div class="rc-overlay">
+        <div class="rc-badge" style="background:var(--teal)">New</div>
+        <div class="rc-type">Connecting Rooms</div>
+        <div class="rc-name">Family Suite</div>
+        <div class="rc-price">₹14,000 <small>/ night</small></div>
+        <div class="rc-extras"><span class="rc-tag">120 sqm</span><span class="rc-tag">2 Baths</span></div>
+        <button type="button" class="rc-btn" onclick="openModal()">Reserve →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<div id="amenities" class="amenity-section">
+  <div class="am-left rv">
+    <div class="section-tag">Facilities</div>
+    <h2 class="am-h2">Every Luxury <em>Imagined</em></h2>
+    <p class="am-body">From sunrise yoga on the terrace to candlelit Ayurvedic rituals at midnight — Hotel Radient wraps you in comfort around the clock.</p>
+    <div class="am-grid">
+      <div class="am-item"><div class="am-icon">🏊</div><div class="am-label">Infinity Pool</div></div>
+      <div class="am-item"><div class="am-icon">💆</div><div class="am-label">Luxury Spa</div></div>
+      <div class="am-item"><div class="am-icon">🏋️</div><div class="am-label">Fitness Suite</div></div>
+      <div class="am-item"><div class="am-icon">🍾</div><div class="am-label">Rooftop Bar</div></div>
+      <div class="am-item"><div class="am-icon">🎭</div><div class="am-label">Event Halls</div></div>
+      <div class="am-item"><div class="am-icon">🚗</div><div class="am-label">Valet Parking</div></div>
+      <div class="am-item"><div class="am-icon">👶</div><div class="am-label">Kids Club</div></div>
+      <div class="am-item"><div class="am-icon">🛎️</div><div class="am-label">24/7 Butler</div></div>
+    </div>
+  </div>
+  <div class="am-right">
+    <div class="am-img-top"></div>
+    <div class="am-bottom-split">
+      <div class="am-img-bl"></div>
+      <div class="am-stat-br">
+        <div class="am-stat-n">18+</div>
+        <div class="am-stat-l">World-Class Amenities</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DINING -->
+<section id="dining" class="dining-section">
+  <div class="dining-head rv">
+    <div>
+      <div class="section-tag" style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--saffron);display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="width:28px;height:2px;background:var(--saffron);display:block"></span>Culinary Arts</div>
+      <h2 class="dining-h2">Taste the <em>City of Joy</em></h2>
+    </div>
+    <button type="button" class="btn-fill" style="align-self:flex-end" onclick="openModal()">Reserve a Table</button>
+  </div>
+  <div class="dining-grid rv">
+    <div class="d-card">
+      <div class="d-img"></div>
+      <div class="d-info">
+        <div class="d-cuisine">Fine Indian Dining</div>
+        <div class="d-name">Amber Hall</div>
+        <div class="d-desc">Contemporary Indian cuisine elevated to an art form. Ancient recipes reimagined with seasonal Bengali produce.</div>
+        <div class="d-res">Reserve a Table →</div>
+      </div>
+    </div>
+    <div class="d-card">
+      <div class="d-img"></div>
+      <div class="d-info">
+        <div class="d-cuisine">European Brasserie</div>
+        <div class="d-name">Soleil</div>
+        <div class="d-desc">From breakfast to late supper, European flavours with a Bengal twist.</div>
+        <div class="d-res">Reserve a Table →</div>
+      </div>
+    </div>
+    <div class="d-card">
+      <div class="d-img"></div>
+      <div class="d-info">
+        <div class="d-cuisine">Rooftop Cocktail Bar</div>
+        <div class="d-name">Sky Lounge</div>
+        <div class="d-desc">360° views of Kolkata with craft cocktails and rare whiskies under open skies.</div>
+        <div class="d-res">Reserve a Table →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section id="exp" class="exp-section">
+  <div class="exp-head rv">
+    <div class="section-tag" style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--saffron);display:flex;align-items:center;gap:12px"><span style="width:28px;height:2px;background:var(--saffron);display:block"></span>Curated Experiences</div>
+    <h2 class="exp-h2">Make <em>Memories</em></h2>
+  </div>
+  <div class="exp-list rv">
+    <div class="exp-row">
+      <div class="exp-n">01</div>
+      <div class="exp-mid"><div class="exp-icon">🚂</div><div><div class="exp-title">Heritage City Tour</div><div class="exp-desc">Victoria Memorial, Howrah Bridge & hidden colonial lanes with an expert local guide.</div></div></div>
+      <div class="exp-arrow">Book Experience →</div>
+    </div>
+    <div class="exp-row">
+      <div class="exp-n">02</div>
+      <div class="exp-mid"><div class="exp-icon">🎨</div><div><div class="exp-title">Artisan Workshops</div><div class="exp-desc">Kalighat paintings and terracotta craft with master artisans from North Kolkata.</div></div></div>
+      <div class="exp-arrow">Book Experience →</div>
+    </div>
+    <div class="exp-row">
+      <div class="exp-n">03</div>
+      <div class="exp-mid"><div class="exp-icon">🌿</div><div><div class="exp-title">Wellness Rituals</div><div class="exp-desc">Ayurvedic therapies and Bengali herbal treatments, personalised for mind and body.</div></div></div>
+      <div class="exp-arrow">Book Experience →</div>
+    </div>
+    <div class="exp-row">
+      <div class="exp-n">04</div>
+      <div class="exp-mid"><div class="exp-icon">🍛</div><div><div class="exp-title">Culinary Journeys</div><div class="exp-desc">Street food trails in College Street to private cooking classes with our chefs.</div></div></div>
+      <div class="exp-arrow">Book Experience →</div>
+    </div>
+    <div class="exp-row">
+      <div class="exp-n">05</div>
+      <div class="exp-mid"><div class="exp-icon">⛵</div><div><div class="exp-title">Ganges Sundowner</div><div class="exp-desc">Private boat cruise on the Hooghly river at dusk — champagne, music, sunset.</div></div></div>
+      <div class="exp-arrow">Book Experience →</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery-section">
+  <div class="gallery-head rv">
+    <div>
+      <div class="gallery-head .section-tag" style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="width:28px;height:2px;background:var(--teal);display:block"></span>Visual Diary</div>
+      <h2 class="gallery-h2">Life at <em>Radient</em></h2>
+    </div>
+  </div>
+  <div class="gallery-bento rv">
+    <div class="g-item"><div class="g-img"></div></div>
+    <div class="g-item"><div class="g-img"></div></div>
+    <div class="g-item"><div class="g-img"></div></div>
+    <div class="g-item"><div class="g-img"></div></div>
+    <div class="g-item"><div class="g-img"></div></div>
+    <div class="g-item"><div class="g-img"></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="testi-head rv">
+    <div class="section-tag" style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--saffron);display:flex;align-items:center;justify-content:center;gap:12px"><span style="width:28px;height:2px;background:var(--saffron);display:block"></span>Guest Stories<span style="width:28px;height:2px;background:var(--saffron);display:block"></span></div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:900;color:var(--plum);margin-top:14px">Words of <em style="color:var(--teal)">Delight</em></h2>
+  </div>
+  <div class="testi-grid rv">
+    <div class="t-card">
+      <div class="t-stars">★★★★★</div>
+      <div class="t-quote">"Radient isn't just a hotel — it's an emotion. The warmth of Kolkata lives in every corner of this magnificent place."</div>
+      <div class="t-author"><div class="t-av">AR</div><div><div class="t-name">Arjun Raghavan</div><div class="t-from">Mumbai · Business Guest</div></div></div>
+    </div>
+    <div class="t-card">
+      <div class="t-stars">★★★★★</div>
+      <div class="t-quote">"Waking up to Kolkata's skyline from the Presidential Suite, with butler service at a ring of the bell — extraordinary."</div>
+      <div class="t-author"><div class="t-av" style="background:var(--saffron)">SK</div><div><div class="t-name">Sofia Kimura</div><div class="t-from">Tokyo · Leisure Stay</div></div></div>
+    </div>
+    <div class="t-card">
+      <div class="t-stars">★★★★★</div>
+      <div class="t-quote">"The Ganges sundowner was unforgettable. Hotel Radient curates moments that simply cannot be replicated."</div>
+      <div class="t-author"><div class="t-av" style="background:var(--plum)">PM</div><div><div class="t-name">Priya Mehta</div><div class="t-from">Delhi · Honeymoon</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location" class="loc-section">
+  <div class="loc-left rv">
+    <div class="section-tag">Our Address</div>
+    <h2 class="loc-h2">In the <em>Heart</em> of Kolkata</h2>
+    <p class="loc-body">Perfectly positioned at Park Street — every icon of the City of Joy is mere minutes away.</p>
+    <div class="loc-dist-list">
+      <div class="loc-dist-item"><div class="dist-name">Victoria Memorial</div><div class="dist-km">1.2 km</div></div>
+      <div class="loc-dist-item"><div class="dist-name">Howrah Bridge</div><div class="dist-km">3.5 km</div></div>
+      <div class="loc-dist-item"><div class="dist-name">Netaji Airport</div><div class="dist-km">14 km</div></div>
+      <div class="loc-dist-item"><div class="dist-name">Eden Gardens</div><div class="dist-km">2.1 km</div></div>
+      <div class="loc-dist-item"><div class="dist-name">Park Street Metro</div><div class="dist-km">0.4 km</div></div>
+    </div>
+    <div class="loc-address">
+      <div class="loc-addr-line"><span>📍</span> 14 Russell Street, Park Street, Kolkata — 700 071</div>
+      <div class="loc-addr-line"><span>📞</span> +91 33 4000 5555</div>
+      <div class="loc-addr-line"><span>✉</span> reservations@hotelradient.com</div>
+    </div>
+  </div>
+  <div class="loc-right rv rv1">
+    <div class="loc-img"></div>
+    <div class="loc-overlay-card">
+      <div style="font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:rgba(250,247,242,.5)">Nearby Attractions</div>
+      <div class="loc-poi-row">
+        <div class="loc-poi"><div class="loc-poi-dot"></div>Victoria Memorial</div>
+        <div class="loc-poi"><div class="loc-poi-dot" style="background:var(--teal)"></div>Howrah Bridge</div>
+        <div class="loc-poi"><div class="loc-poi-dot" style="background:#a78bfa"></div>Park Street</div>
+        <div class="loc-poi"><div class="loc-poi-dot" style="background:var(--saffron)"></div>Eden Gardens</div>
+        <div class="loc-poi"><div class="loc-poi-dot" style="background:#34d399"></div>College Street</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-h2 rv">Start Your<br><em>Kolkata</em><br>Chapter.</h2>
+  <div class="cta-right rv rv1">
+    <p class="cta-body">Direct bookings receive our best rate guarantee, complimentary airport transfer, and a welcome tray of Kolkata's finest mishti.</p>
+    <div class="cta-actions">
+      <button type="button" class="btn-white" onclick="openModal()">Book Your Stay</button>
+      <button type="button" class="btn-white-border" onclick="scrollToSection('location')">Download Brochure</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div><div class="f-logo">Radient.</div><div class="f-tagline">"Where Kolkata's soul meets timeless luxury"</div><div class="f-contact">14 Russell Street, Park Street<br>Kolkata — 700 071, West Bengal<br><br>+91 33 4000 5555<br>reservations@hotelradient.com</div></div>
+    <div><div class="f-col-title">Explore</div><a class="f-link" href="#rooms">Rooms & Suites</a><a class="f-link" href="#dining">Dining</a><a class="f-link" href="#amenities">Amenities</a><a class="f-link" href="#exp">Experiences</a><a class="f-link" href="#gallery">Gallery</a></div>
+    <div><div class="f-col-title">Services</div><a class="f-link" href="#">Weddings & Events</a><a class="f-link" href="#">Corporate Meetings</a><a class="f-link" href="#">Concierge</a><a class="f-link" href="#">Airport Transfers</a><a class="f-link" href="#">Spa Reservations</a></div>
+    <div><div class="f-col-title">Information</div><a class="f-link" href="#">About Radient</a><a class="f-link" href="#">Press & Media</a><a class="f-link" href="#">Loyalty Programme</a><a class="f-link" href="#">Privacy Policy</a><a class="f-link" href="#">Terms & Conditions</a></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy">© 2024 Hotel Radient Kolkata · All Rights Reserved</div>
+    <div class="f-socials">
+      <a class="f-soc" href="#">𝕏</a><a class="f-soc" href="#">in</a><a class="f-soc" href="#">f</a><a class="f-soc" href="#">📷</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll',()=>document.getElementById('nav').style.boxShadow=window.scrollY>80?'0 4px 30px rgba(45,27,78,.12)':'none');
+
+// MODAL
+function openModal(){document.getElementById('modal').classList.add('on')}
+function closeModal(){document.getElementById('modal').classList.remove('on')}
+function scrollToSection(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+function submitBooking(){closeModal();const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3200)}
+
+// DATES
+const today=new Date(),tom=new Date(today);tom.setDate(tom.getDate()+1);
+const fmt=d=>d.toISOString().split('T')[0];
+['ci','co','bci','bco'].forEach((id,i)=>document.getElementById(id)&&(document.getElementById(id).value=fmt(i%2===0?today:tom)));
+
+// REVEAL
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
